@@ -1,35 +1,48 @@
-import React, { useEffect, useRef } from 'react';
-import { mapLoader } from '../utils/mapLoader';
+/* eslint-disable no-undef */
+
+import { useEffect, useRef, useState } from 'react';
+import { mapLoader, mapOptions, position } from '../utils/mapUtils';
 
 export function Map() {
+
+
     const mapRef = useRef(null);
+    const [wisata,setWisata]= useState(null)
+    const initMap = async () => {
+        const { Map } = await mapLoader.importLibrary('maps')
+        window.google = google
+        let map = new Map(mapRef.current, mapOptions)
 
+        let marker = new google.maps.Marker({
+            map,
+            draggable: true,
+            position,
+            animation: google.maps.Animation.DROP,
+            title:'koto gadang'
+        })
+        marker.addListener('click',(e)=>{
+            console.log(e)
+        })
+
+        map.data.addListener('click',(e)=>{
+            console.log(e.feature.getProperty('NAMA'))
+        })
+        wisata&& map.data.addGeoJson(wisata)
+    }
     useEffect(() => {
-        async function loadMap() {
-            if (mapRef.current) {
-
-                new Loader({
-                    apiKey: 'AIzaSyB8B04MTIk7abJDVESr6SUF6f3Hgt1DPAY',
-                    version: 'weekly'
-                }).load().then((google) => {
-                    const map = new google.maps.Map(mapRef, {
-                        center: {
-                            lat: -6.200000,
-                            lng: 106.816666,
-                        },
-                    })
-
-               
-                    
-                }).catch((error) => {console.log(error)})
-            }
-
-
+        const fetchData =async ()=>{
+            const response = await fetch('/maps/objek_wisata.geojson')
+            const data = await response.json()
+            setWisata(data)
         }
-
-        loadMap();
+        fetchData()
+    }, [wisata])
+  
+    useEffect(() => {
+        initMap()
     }, []);
-
-    return <div ref={mapRef} style={{ height: '500px', width: '100%' }}></div>;
+  
+    if (!wisata)return <div>loading...</div>
+    return <div ref={mapRef} className='size-64 bg-slate-500' style={{ height: '500px', width: '100%' }}></div>;
 }
 

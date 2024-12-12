@@ -1,6 +1,7 @@
 import { FaSearch } from "react-icons/fa"
-import { Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { Map } from "../components/Map";
+import { NavItem } from "../components/NavItem";
 const Home = () => {
     return (
         <main className="container font-sans h-screen max-w-none overflow-x-hidden">
@@ -12,14 +13,14 @@ const Home = () => {
                 </div>
                 <nav className="grow self-center">
                     <ul className="flex gap-4 flex-wrap justify-around items-center capitalize">
-                        <li><NavLink to={'/'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> Home </NavLink></li>
-                        <li><NavLink to={'/wisata'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> Wisata </NavLink></li>
-                        <li><NavLink to={'/ibada'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> Ibadah </NavLink></li>
-                        <li><NavLink to={'/kantor'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> kantor </NavLink></li>
-                        <li><NavLink to={'/kesehatan'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> kesehatan </NavLink></li>
-                        <li><NavLink to={'/pendidikan'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> pendidikan </NavLink></li>
-                        <li><NavLink to={'/penduduk'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> penduduk </NavLink></li>
-                        <li><NavLink to={'/sejarah'} className={({ isActive }) => (isActive ? 'text-red-400' : 'text-slate-800')}> sejarah </NavLink></li>
+                        <NavItem label='Home' link='/'/>
+                        <NavItem label='wisata' link='/wisata'/>
+                        <NavItem label='ibadah' link='/ibadah'/>
+                        <NavItem label='kantor' link='/kantor'/>
+                        <NavItem label='kesehatan' link='/kesehatan'/>
+                        <NavItem label='pendidikan' link='/pendidikan'/>
+                        <NavItem label='penduduk' link='/penduduk'/>
+                        <NavItem label='sejarah' link='/sejarah'/>
                     </ul>
                 </nav>
 
@@ -69,7 +70,7 @@ const Home = () => {
                 <div className="space-y-4 leading-loose w-full z-10 [&_h2]:text-xl [&_h2]:text-indigo-900 [&_h2]:font-semibold mx-auto px-12  -mb-8">
                     <article className=" ">
                         <h2> Main service</h2>
-                        <div className="shadow flex font-normal [&_section]:p-8  divide-x [&_section]:flex-[min-content] [&_section]:flex [&_section]:justify-center [&_section]:items-center">
+                        <div className="shadow  flex font-normal [&_section]:p-8  divide-x [&_section]:flex-[min-content] [&_section]:flex [&_section]:justify-center [&_section]:items-center">
                             <section><p>text</p></section>
                             <section><p>text</p></section>
                             <section><p>text</p></section>
@@ -77,9 +78,9 @@ const Home = () => {
                             <section><p>text</p></section>
                         </div>
                     </article>
-                    <article className="h-96  ">
+                    <article className="h-96   ">
                         <h2>It&apos;s easy getting to the Central Station Complex!</h2>
-                        <div className="bg-slate-200 h-full rounded-xl">
+                        <div className="bg-slate-200 p-6 h-full rounded-xl">
                             <p>test</p>
                             <p>test</p>
                             <p>test</p>
