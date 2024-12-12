@@ -4,20 +4,18 @@ import { useEffect, useRef, useState } from 'react';
 import { mapLoader, mapOptions, position } from '../utils/mapUtils';
 
 export function Map() {
-
-
     const mapRef = useRef(null);
     const [wisata,setWisata]= useState(null)
     const initMap = async () => {
         const { Map } = await mapLoader.importLibrary('maps')
+        const { AdvancedMarkerElement } = await mapLoader.importLibrary('marker')
         window.google = google
         let map = new Map(mapRef.current, mapOptions)
 
-        let marker = new google.maps.Marker({
+        let marker = new AdvancedMarkerElement({
             map,
             draggable: true,
-            position,
-            animation: google.maps.Animation.DROP,
+            position, 
             title:'koto gadang'
         })
         marker.addListener('click',(e)=>{
@@ -27,7 +25,9 @@ export function Map() {
         map.data.addListener('click',(e)=>{
             console.log(e.feature.getProperty('NAMA'))
         })
-        wisata&& map.data.addGeoJson(wisata)
+         if(wisata){     
+             map.data.addGeoJson(wisata)
+        }  
     }
     useEffect(() => {
         const fetchData =async ()=>{
@@ -39,10 +39,10 @@ export function Map() {
     }, [wisata])
   
     useEffect(() => {
-        initMap()
-    }, []);
+        if(mapRef.current) initMap()
+    }, [mapRef.current]);
   
-    if (!wisata)return <div>loading...</div>
+    
     return <div ref={mapRef} className='size-64 bg-slate-500' style={{ height: '500px', width: '100%' }}></div>;
 }
 
