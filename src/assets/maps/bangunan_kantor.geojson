@@ -1,0 +1,8 @@
+{
+"type": "FeatureCollection",
+"name": "BANGUNAN KANTOR",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0, "NAMA": "KANTOR WALI NAGARI\r\nKOTO GADANG" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 100.358077452940009, -0.318766204528685 ], [ 100.358145768224304, -0.318739912161612 ], [ 100.358199492032952, -0.318881385805205 ], [ 100.358131176750916, -0.318907678176068 ], [ 100.358077452940009, -0.318766204528685 ] ] ] ] } }
+]
+}

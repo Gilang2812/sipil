@@ -1,0 +1,9 @@
+{
+"type": "FeatureCollection",
+"name": "BANGUNAN IBADAH",
+"crs": { "type": "name", "properties": { "name": "urn:ogc:def:crs:OGC:1.3:CRS84" } },
+"features": [
+{ "type": "Feature", "properties": { "Id": 0, "NAMA": "SURAU MUDIAK", "WISATA": "TEMPAT IBADAH DAN PHOTOGENIC", "FASILITAS": "TEMPAT BERIBADAH DAN ISTIRAHAT" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 100.35846379264855, -0.319888042413333 ], [ 100.358503997515456, -0.319808859850607 ], [ 100.358583241422622, -0.319849638746037 ], [ 100.358543036558842, -0.319928821307138 ], [ 100.35846379264855, -0.319888042413333 ] ] ] ] } },
+{ "type": "Feature", "properties": { "Id": 0, "NAMA": "SURAU ILIA BINAUL IMAN", "WISATA": "TEMPAT IBADAH DAN PHOTOGENIC", "FASILITAS": "TEMPAT BERIBADAH DAN ISTIRAHAT" }, "geometry": { "type": "MultiPolygon", "coordinates": [ [ [ [ 100.355905357404751, -0.31528537939323 ], [ 100.356075117108531, -0.315298052771384 ], [ 100.356063375138831, -0.315457458640982 ], [ 100.355893615430801, -0.315444785273831 ], [ 100.355905357404751, -0.31528537939323 ] ] ] ] } }
+]
+}
