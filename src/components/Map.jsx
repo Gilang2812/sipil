@@ -43,6 +43,10 @@ export function Map() {
     }, [mapRef.current]);
   
     
-    return <div ref={mapRef} className='size-64 bg-slate-500' style={{ height: '500px', width: '100%' }}></div>;
+    return <div ref={mapRef} className='relative rounded-xl size-64 bg-slate-500' style={{ height: '500px', width: '100%' }}>
+        <div className='bg-red-200  size-40 absolute top-0 right-0'>
+
+        </div>
+    </div>;
 }
 
