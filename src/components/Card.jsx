@@ -1,8 +1,9 @@
 /* eslint-disable react/prop-types */
 export const Card = ({ title, subtitle, imageSrc, order }) => {
+    let z = `z-[${order}]`
     return (
         <article
-            className={`bg-slate-100 overflow-hidden rounded-sm flex-1 space-y-8 shadow-[2px_0_15px_1px_rgba(0,0,0,0.25)]  z-[${order}] group`}
+            className={`bg-slate-100 ${z} overflow-hidden rounded-sm flex-1 space-y-8 shadow-[2px_0_15px_1px_rgba(0,0,0,0.25)]   group`}
         >
             <figure className="overflow-hidden">
                 <img

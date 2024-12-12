@@ -6,6 +6,7 @@ import { mapLoader, mapOptions, position } from '../utils/mapUtils';
 export function Map() {
     const mapRef = useRef(null);
     const [wisata,setWisata]= useState(null)
+    const [loading,setLoading]=  useState(false);
     const initMap = async () => {
         const { Map } = await mapLoader.importLibrary('maps')
         const { AdvancedMarkerElement } = await mapLoader.importLibrary('marker')
@@ -30,17 +31,20 @@ export function Map() {
         }  
     }
     useEffect(() => {
+        setLoading(true)
         const fetchData =async ()=>{
             const response = await fetch('/maps/objek_wisata.geojson')
             const data = await response.json()
             setWisata(data)
+            setLoading(false)
         }
         fetchData()
-    }, [wisata])
+    }, [])
   
     useEffect(() => {
-        if(mapRef.current) initMap()
-    }, [mapRef.current]);
+        if(mapRef.current &&!loading) {initMap()}
+        console.log(loading)
+    }, [mapRef.current,wisata,loading]);
   
     
     return <div ref={mapRef} className='relative rounded-xl size-64 bg-slate-500' style={{ height: '500px', width: '100%' }}>
