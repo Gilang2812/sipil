@@ -2,7 +2,9 @@ import { FaSearch } from "react-icons/fa"
 import { Link } from "react-router-dom";
 import { Map } from "../components/Map";
 import { NavItem } from "../components/NavItem";
-import { MdOutlineHealthAndSafety } from "react-icons/md";
+import { MdOutlineHealthAndSafety, MdOutlineMosque } from "react-icons/md";
+import { AiOutlineEnvironment } from "react-icons/ai";
+import { ServiceItem } from "../components/ServiceItem";
 const Home = () => {
     return (
         <main className="container bg-[#F8FAFC] font-sans h-screen max-w-none overflow-x-hidden">
@@ -71,14 +73,10 @@ const Home = () => {
                 <div className="space-y-4 leading-loose w-full z-10 [&_h2]:text-xl [&_h2]:text-indigo-900 [&_h2]:font-semibold mx-auto px-12  -mb-8">
                     <article className=" ">
                         <h2> Main service</h2>
-                        <div className="shadow  bg-white flex font-normal [&_section]:p-8  divide-x [&_section]:flex-[min-content] [&_section]:flex [&_section]:justify-center [&_section]:items-center [&_article]:flex [&_article]:items-center [&_article]:justify-center [&_article]:flex-col [&_svg]:border-2 [&_svg]:text-3xl  [&_svg]:rounded-[50%] [&_svg]:border-black text-xl">
-                            <section><p>text</p></section>
-                            <section><p>text</p></section>
-                            <section>
-                                 <article>
-                                <MdOutlineHealthAndSafety />
-                                </article>
-                                </section>
+                        <div className="shadow  bg-white flex font-normal    divide-x        text-xl">
+                            <ServiceItem Icon={MdOutlineMosque} />
+                            <ServiceItem Icon={AiOutlineEnvironment} />
+                            <ServiceItem Icon={MdOutlineHealthAndSafety} />
                         </div>
                     </article>
                     <article className="">
